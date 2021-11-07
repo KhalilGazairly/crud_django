@@ -1,0 +1,25 @@
+{% extends 'main/base_layout.html' %}
+{% block title %}
+Home page
+{% endblock %}
+
+{% load static %}
+{% block content %}
+  <div class="b-example-divider"></div>
+
+  <div class="container my-5">
+    <div class="row rounded-2 p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center border shadow-lg">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1">This is a Django Project Created by Khalil Gazairly </h1>
+        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, using Python Django freamwork, and powerful JavaScript plugins.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          <a href="{% url 'movie:movie-index' %}"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Movies</button></a>
+          <a href="{% url 'todo:todo-list' %}"><button type="button" class="btn btn-outline-secondary ml-2 btn-lg px-4">Tasks</button></a>
+        </div>
+      </div>
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3" alt="" width="620" src="{% static 'main/images/book.jpg' %}" >
+      </div>
+    </div>
+  </div>
+{% endblock %}

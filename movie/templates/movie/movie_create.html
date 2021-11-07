@@ -1,0 +1,53 @@
+{% extends 'main/base_layout.html' %}
+{% block content %}
+<div class="container">
+    <div class="row  py-3">
+        <div class=" m-auto col-8">
+            <form method="post" action="{% url 'movie:movie-create' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{form.as_p}}
+
+                {% comment %}
+                <div class="form-group">
+                    <label for="MovieName">Movie Name: </label>
+                    <input type="text" name="name" class="form-control" id="MovieName" placeholder="Enter name">
+                </div>
+
+                <div class="form-group">
+                    <div class="mb-3 ">
+                        <label for="MovieDesc" class="form-label"> Description: </label>
+                        <textarea  rows="3" name="desc" class="form-control" id="MovieDesc" placeholder="Enter Description"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="MovieLikes">Like: </label>
+                    <input type="number" name="likes" class="form-control" id="MovieLikes"
+                           placeholder="Enter Priority">
+                </div>
+
+                <div class="mb-3">
+                  <label for="formFileSm" class="form-label">Poster Image: </label>
+                  <input class="form-control h-100" type="file" id="formFileSm">
+                </div>
+
+ {% endcomment %}
+                <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="text-center mt-5" style="display:inline">
+                    <a href="{% url 'movie:movie-index'%}">
+                        <button type="button" class="btn btn-info">
+                            Back to Movie Index
+                        </button>
+                    </a>
+                </div>
+                </div>
+
+
+            </form>
+        </div>
+</div>
+
+    </div>
+    {% endblock %}

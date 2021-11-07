@@ -1,0 +1,49 @@
+{% extends 'main/base_layout.html' %}
+{% block title %}
+Movies list
+{% endblock %}
+
+{% block content %}
+<table class="table table-condensed text-center">
+    <thead class="table-primary">
+        <td >Movie Name</td>
+        <td>Description</td>
+        <td>Likes</td>
+        <td>Rates</td>
+        <td>Actions</td>
+    </thead>
+    <tbody>
+    {% for movie in movies %}
+        <tr >
+            <td>{{movie.name}}</td>
+            <td>{{movie.description}}</td>
+            <td>{{movie.likes}}</td>
+            <td>{{movie.rate}}</td>
+            <td>
+                <a href="{% url 'movie:movie-detail' movie.id %}" class="btn btn-info"> View</a>
+                <a href="{% url 'movie:movie-update' movie.id %}" class="btn btn-warning"> Update</a>
+                <a href="{% url 'movie:movie-delete' movie.id %}" class="btn btn-danger"> Delete</a>
+            </td>
+        </tr>
+        <tr>
+            {% empty %}
+        </tr>
+        <tr>
+            <td colspan="3" class="text-center"> Sorry, no task in this list.</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+            <div class="text-center">
+
+                <div class="text-center m-5" >
+                    <a href="{% url 'movie:movie-create'%}">
+                        <button type="button" class="btn btn-primary">
+                            Add New Movie
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'main/base_layout.html' %}
+{% block title %}
+Todo Tasks list
+{% endblock %}
+
+{% block content %}
+<table class="table table-condensed text-center">
+    <thead class="table-primary">
+        <td>Task ID</td>
+        <td>Task Name</td>
+        <td>Priority</td>
+        <td>Description</td>
+        <td>Actions</td>
+    </thead>
+    <tbody>
+    {% for task in task_list %}
+        <tr {% if task.priority > 3 %} style="color:red" {% else %} style="color:green" {% endif %} >
+            <td>{{task.id}}</td>
+            <td>{{task.name}}</td>
+            <td>{{task.priority}}</td>
+            <td>{{task.description}}</td>
+            <td>
+                <a class="btn btn-info" href="{% url 'todo:todo-detail' task.id %}">View</a>
+                <a class="btn btn-warning" href="{% url 'todo:todo-update' task.id %}">Update</a>
+                <a class="btn btn-danger" href="{% url 'todo:todo-delete' task.id %}">Delete</a>
+            </td>
+        </tr>
+        <tr>
+            {% empty %}
+        </tr>
+        <tr>
+            <td colspan="3" class="text-center"> Sorry, no task in this list.</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

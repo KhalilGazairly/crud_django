@@ -1,0 +1,29 @@
+{% extends 'main/base_layout.html' %}
+{% block title %}
+Todo list
+{% endblock %}
+
+{% block content %}
+        <h1 class=" text-center py-4">WELCOME TO TODO DETAIL</h1>
+        <h2 class=" text-center p-2">Your task ID {{task_id}}</h2>
+        <table class="table table-condensed text-center mb-5">
+            <thead class="table-primary">
+                <td>Task ID</td>
+                <td>Task Name</td>
+                <td>Priority</td>
+                <td>Description</td>
+            </thead>
+            <tbody>
+                <tr {% if task_priority > 3 %} style="color:red" {% else %} style="color:green" {% endif %} >
+                    <td>{{task_id}}</td>
+                    <td>{{task_name}}</td>
+                    <td>{{task_priority}}</td>
+                    <td>{{task_description}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+<!--        <a href="{% url 'todo:todo-list' %} ">Back to Tasks</a>-->
+<!--        <a href="{% url 'todo:index' %} ">Back to Index</a>-->
+{% endblock  %}
