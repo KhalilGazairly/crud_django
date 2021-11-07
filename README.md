@@ -22,4 +22,10 @@ This is a crude django project contain:
    
    And this is a screen from localhost
    
+   <img src="main_static/main/images/django02.gif">
+   
    <img src="main_static/main/images/django01.gif">
+   
+   <img src="main_static/main/images/django03.gif">
+   
+   <img src="main_static/main/images/django04.gif">
