@@ -15,12 +15,12 @@ class MovieAdmin(admin.ModelAdmin):
 
     custom_list.short_description='Movie Rate'
 
-    # fieldsets = (
-    #     ['Main Section', {'fields': ['name', 'description']}],
-    #     ['Statistics Section', {'fields': ['likes', 'watch_count', 'rate']}],
-    #     ['Attachment Section', {'fields': ['poster', 'video']}],
-    #     ['Related Information Section', {'fields': ['categories']}],
-    # )
+    fieldsets = (
+        ['Main Section', {'fields': ['name', 'description']}],
+        ['Statistics Section', {'fields': ['likes', 'watch_count', 'rate']}],
+        ['Attachment Section', {'fields': ['poster', 'video']}],
+        # ['Related Information Section', {'fields': ['categories']}],
+    )
 
 
 admin.site.register(Movie, MovieAdmin)

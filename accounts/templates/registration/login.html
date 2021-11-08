@@ -1,12 +1,16 @@
 
 {% extends 'main/base_layout.html' %}
+{% load widget_tweaks %}
 {% block content %}
     <div class="container">
         <div class="row">
-        <div class="m-auto py-5">
+        <div class="m-auto col-6 py-5">
             <form method="post" action="{% url 'movie:movie-index' %}" >
                          {% csrf_token %}
-                        {{form.as_p}}
+                        {% for field in form %}
+                {{ field.label_tag }}
+                    {% render_field field class="form-control mb-3" %}
+                {% endfor %}
             <button class="btn btn-info m-auto " type="submit">Log In</button>
             </form>
 
