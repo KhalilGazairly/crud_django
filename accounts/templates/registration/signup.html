@@ -1,0 +1,16 @@
+
+{% extends 'main/base_layout.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+        <div class="m-auto py-5">
+            <form method="post" action="{% url 'signup' %}" >
+                         {% csrf_token %}
+                        {{form.as_p}}
+            <button class="btn btn-info m-auto " type="submit">Register </button>
+            </form>
+
+        </div>
+        </div>
+    </div>
+{% endblock %}

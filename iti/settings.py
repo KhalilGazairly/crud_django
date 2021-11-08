@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todo',
-    'movie',
+    'movie.apps.MovieConfig',
     'cinema',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,14 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/khalil-gazairly/workspace/iti_django/media_root'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'zorro.tourry@gmail.com'
+EMAIL_HOST_PASSWORD = 'goegoegoe123'
+
+LOGIN_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '/movies/index'
+LOGOUT_REDIRECT_URL = '/accounts/login'

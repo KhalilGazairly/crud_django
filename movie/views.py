@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Movie
 from .forms import MovieForm
+from django.core.mail import send_mail
+
+
 # Create your views here.
 
 

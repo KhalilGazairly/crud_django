@@ -44,7 +44,7 @@ class Movie(models.Model):
     watch_count = models.IntegerField(default=0, null=True)
     rate = models.PositiveIntegerField(default=0, null=True)
 
-    # production_date = models.DateField(null=True, blank=True)
+    production_date = models.DateField(null=True, blank=True)
     creation_date = models.DateTimeField(auto_now_add=True)
     modification_date = models.DateTimeField(auto_now=True)
 
