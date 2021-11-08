@@ -3,7 +3,7 @@
 <div class="container py-5">
     <div class="row">
         <div class=" m-auto col-8">
-            <form method="post" action="{% url 'movie:movie-update' movie.id %}" >
+            <form method="post" action="{% url 'movie:movie-update' movie.id %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{form.as_p}}
                 <div class="text-center">

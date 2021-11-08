@@ -34,7 +34,7 @@ def movie_detail(request, pk):
 def movie_create(request):
     form = MovieForm()
     if request.method == 'POST':
-        form = MovieForm(data=request.POST)
+        form = MovieForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             print('Yes, is valid')
             form.save()
@@ -48,7 +48,7 @@ def movie_update(request, pk):
     form = MovieForm(instance=movie)
 
     if request.method == 'POST':
-        form = MovieForm(data=request.POST, instance=movie)
+        form = MovieForm(data=request.POST, files=request.FILES, instance=movie)
         if form.is_valid():
             form.save()
             return redirect('movie:movie-detail', pk=movie.id)

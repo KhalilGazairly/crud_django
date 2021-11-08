@@ -1,17 +1,122 @@
 {% extends 'main/base_layout.html' %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="text-center col-12">
-            <div class="card">
-                <div class="card-title">
-                    {{movie.name}}
-                </div>
-                <div>{{movie.description}}</div>
-                <div>{{movie.likes}}</div>
-                <div>{{movie.watch_count}}</div>
-            </div>
+
+<div class="container py-1">
+  <div class="row py-4">
+      <div class="col-md-4 py-4">
+        {% if movie.poster %}
+        <img
+          class="w-100"
+       src="{{movie.poster.url}}"
+        />
+        {% endif %}
+      </div>
+
+      <div class="col-md-8">
+        <div class="item">
+          <table class="table table-hover table-borderless ">
+            <thead>
+              <tr>
+                <th scope="col" colspan="3">
+                  <h3>{{movie.name}}</h3>
+                </th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+
+                <th scope="row"><h6>languages:</h6></th>
+                <td>
+                  {% for language in movie.language.all %}
+                  <h6>{{language.language}}</h6>
+                  {% endfor %}
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><h6>Category:</h6></th>
+                <td>
+                  {% for category in movie.category.all %}
+                  <h6>{{category.category}}</h6>
+                  {% endfor %}
+                </td>
+              </tr>
+              <tr>
+                <td><h6>Release Date :</h6></td>
+                <td>
+                  <h6>{{movie.creation_date}}</h6>
+                </td>
+              </tr>
+              <tr>
+                <td><h6>Watch Count :</h6></td>
+                <td>
+                  <h6>{{movie.watch_count}}</h6>
+                </td>
+              </tr>
+              <tr>
+                <td><h6>Likes :</h6></td>
+                <td>
+                  <h6>{{movie.likes}}</h6>
+                </td>
+              </tr>
+              <tr>
+                <td><h6>Vote rate :</h6></td>
+                <td>
+                  <h6>{{movie.rate}}</h6>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">{{movie.description}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
+  </div>
 </div>
+
+{% if movie.video %}
+<div class="container ">
+  <div class="row">
+    <div class="m-auto col-md-8 py-2">
+      <img
+        class="w-100"
+     src="{{movie.video.url}}"
+      />
+    </div>
+  </div>
+</div>
+{% endif %}
+<div class="container pt-3">
+  <h3>Cast:</h3>
+  <div class="row">
+    {% for actor in movie.actors.all %}
+    <div class="col-md-3 py-3 text-center">
+      <div class="card" style="width: 15rem; ">
+        {% if actor.profile_image %}
+        <img src="{{actor.profile_image.url}}" class="card-img-top w-100 rounded" alt="actor image">
+        {% endif %}
+        <div class="card-body ">
+          <p class="card-text">{{actor.first_name}}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="text-center col-12">-->
+<!--            <div class="card">-->
+<!--                <div class="card-title">-->
+<!--                    {{movie.name}}-->
+<!--                </div>-->
+<!--                <div>{{movie.description}}</div>-->
+<!--                <div>{{movie.likes}}</div>-->
+<!--                <div>{{movie.watch_count}}</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 {% endblock %}
