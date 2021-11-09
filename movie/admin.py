@@ -2,10 +2,26 @@ from django.contrib import admin
 from .models import Movie, Actor, Review, Language, Categories
 
 
+class InlineActors(admin.TabularInline):
+    model = Movie.actors.through
+    extra = 1
+
+
+class InlineCategory(admin.TabularInline):
+    model = Movie.category.through
+    extra = 1
+
+
+class InlineLanguage(admin.TabularInline):
+    model = Movie.language.through
+    extra = 1
+
+
 class MovieAdmin(admin.ModelAdmin):
     list_filter = ('name',)
     search_fields = ('name',)
     list_display = ('name', 'likes', 'rate', 'watch_count', 'custom_list',  'creation_date',)
+    inlines = [InlineActors, InlineCategory, InlineLanguage]
 
     def custom_list(self, obj):
         if obj.likes and obj.watch_count:
