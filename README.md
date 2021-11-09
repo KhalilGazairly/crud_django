@@ -31,12 +31,34 @@ Project is created with:
    ## screens
    And this is a screen from localhost
    
+<img src="main_static/main/images/home.png">
+   <hr>
+<br>
+<img src="main_static/main/images/movie_list.png">
+   <hr>
+<br>
+<img src="main_static/main/images/task_list.png">
+   <hr>
+<br>
+<img src="main_static/main/images/movie_creation.png">
+   <hr>
+<br>
+<img src="main_static/main/images/movie_details.png">
+   <hr>
+<br>
+<img src="main_static/main/images/register_form.png">
+   <hr>
+<br>
+<img src="main_static/main/images/admin_movie.png">
+   <hr>
+<br>
    <img src="main_static/main/images/django02.gif">
    <hr>
-   <br>
-   
+<br>
    <img src="main_static/main/images/django01.gif">
    <hr>
+<br>
    <img src="main_static/main/images/django03.gif">
    <hr>
-   <img src="main_static/main/images/django04.gif">
+<br>
+<img src="main_static/main/images/django04.gif">
